@@ -2,6 +2,8 @@
 	position: relative;
 	display: block;
 	height: 600px;
+	width: 80%;
+  	margin: auto;
 }
 #tatr-annotations{
 	position: absolute;

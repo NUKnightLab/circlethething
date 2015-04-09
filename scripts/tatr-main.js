@@ -17,17 +17,7 @@ $(document).ready( function () {
 	  	width: $width
 	  });
 
-
-
-
-	  // var $svgpanel = $(document.createElement('svg'))
-	  // 		.addClass('tatr-annotations')
-	  // 		.attr('height',$height)
-	  // 		.attr('width',$width);
-
-
-
-	  data.annotations.forEach(function(an, idx){
+	data.annotations.forEach(function(an, idx){
 	  	//rectangle
 	  	if(an.coords.length==4){
 			var rect = svgpanel.rect($width*an.coords[0],$height*an.coords[1],$width*an.coords[2],$height*an.coords[3]);
