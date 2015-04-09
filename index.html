@@ -2,15 +2,17 @@
 <html>
   <head>
    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+   <script type="text/javascript" src="./scripts/ext/snap.svg-min.js"></script>
    <link rel="stylesheet" type="text/css" href="./styles/tatr-styles.css">
   </head>
   <body>
-   <div class="tatr-box" style="width:100%" height="600">
+   <div id="tatr-box">
    <!-- This is the structure Javascript will write in -->
 
-    <!-- <img class="tatr-baseimg"/>
-    <svg class="tatr-annotations">
-      <defs>
+    <img class="tatr-baseimg"/>
+    <svg id='tatr-annotations' version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id='tatr-texts'></div>
+    <!--  <defs>
         <mask id="tatr-masker">
         </mask>
       </defs>

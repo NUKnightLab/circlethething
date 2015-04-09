@@ -1,43 +1,43 @@
 $(document).ready( function () {
 	$.getJSON( "./data/annotations.json", function( data ) {
 
-	  var $tatrbox = $('.tatr-box');
+	  var $tatrbox = $('#tatr-box');
 	  
 	  // DOM manipulation
-	  var $baseimg = $(document.createElement('img'))
-	  		.addClass('tatr-baseimg')
+	  var $baseimg = $('.tatr-baseimg')
 	  		.attr('src',data.imgsrc);
-
-	  $tatrbox.append($baseimg);
-
-	  var $svgpanel = $(document.createElement('svg'))
-	  		.addClass('tatr-annotations');
-
-	  $tatrbox.append($svgpanel);
 
 	  $width = $tatrbox.width();
 	  $height = $tatrbox.height();
 
+	  svgpanel = Snap('#tatr-annotations');
+
+	  svgpanel.attr({
+	  	height: $height,
+	  	width: $width
+	  });
+
+
+
+
+	  // var $svgpanel = $(document.createElement('svg'))
+	  // 		.addClass('tatr-annotations')
+	  // 		.attr('height',$height)
+	  // 		.attr('width',$width);
+
+
+
 	  data.annotations.forEach(function(an, idx){
 	  	//rectangle
 	  	if(an.coords.length==4){
-	  		var $rect = $(document.createElement('rect'))
-	  			.attr('x',$width*an.coords[0])
-	  			.attr('y',$height*an.coords[1])
-	  			.attr('width',$width*an.coords[2])
-	  			.attr('height',$height*an.coords[3])
-	  			.addClass('tatr-shapes');
-	  		$svgpanel.append($rect)
+			var rect = svgpanel.rect($width*an.coords[0],$height*an.coords[1],$width*an.coords[2],$height*an.coords[3]);
+	  		rect.attr({
+	  			class : 'tatr-shapes'
+	  		})
 	  	}
 	  	//circle
 	  	else{
-	  		var $circle = $(document.createElement('circle'))
-	  			.attr('cx',$width*an.coords[0])
-	  			.attr('cy',$width*an.coords[1])
-	  			.attr('r',$width*an.coords[2])
-	  			.addClass('tatr-shapes');
-
-	  		$svgpanel.append($circle);
+			var circle = svgpanel.circle($width*an.coords[0],$height*an.coords[1],$width*an.coords[2]);
 	  	}
 	  });
 
@@ -45,9 +45,22 @@ $(document).ready( function () {
 	  data.annotations.forEach(function(an, idx){
 	  	var $text = $(document.createElement('div'))
 	  		.html(an.text)
-	  		.addClass('tatr-texts');
+	  		.addClass('tatr-text');
 
-	  	$svgpanel.append($text);
+	  	if(an.coords.length==4){
+	  		$text
+	  		.css('top',$height*an.coords[1]+$height*an.coords[3]+'px')
+	  		.css('left',$width*an.coords[0]+'px');
+	  	}
+	  	else{
+	  		$text
+	  		.css('top',$height*an.coords[1]+$width*an.coords[2]+'px')
+	  		.css('left',$width*an.coords[0]-$width*an.coords[2]+'px');
+	  	}
+
+	  	$('#tatr-texts').height($height).append($text);
+
+
 	  	
 	  });
 	  
