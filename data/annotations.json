@@ -3,11 +3,11 @@
 	"credit": "Kavyas",
 	"annotations":[
 		{
-			"coords":[0.1,0.1,100,100], 
+			"coords":[0.1,0.1,0.1,0.1], 
 			"text":"this is the text info for rectangle"
 		},
 		{
-			"coords":[0.1,0.1,100], 
+			"coords":[0.1,0.1,0.1], 
 			"text":"this is how a circle would look."
 		}
 	]

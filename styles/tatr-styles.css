@@ -1,0 +1,12 @@
+.tatr-box{
+	position: relative;
+	display: block;
+}
+.tatr-annotations{
+	position: absolute;
+	top:0;
+}
+.tatr-baseimg{
+	width: 100%;
+	height: 100%;
+}
