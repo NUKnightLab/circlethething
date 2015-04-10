@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <title>Ractive test</title>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:600' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" type="text/css" href="./styles/tatrstyles.css">
+</head>
+
+<body class="tatr-body">
+  <div id="tatr-box">
+    <script id='template' type='text/ractive'>
+      <img class="tatr-baseimg" src='img/garbage_plate.jpg'/>
+      {{#if visible === 1 }}
+        <img class="tatr-mask" src="img/mask.svg" style="opacity:{{mask}};">   
+        <svg on-hover='masky' id='tatr-annotations' version="1.1" xmlns="http://www.w3.org/2000/svg" style='opacity:{{tatrOpacity}};'>
+          {{#each tatr}}
+            <circle on-click='show:{{visible}}' cx='{{xpos}}%' cy='{{ypos}}%' r='{{radius}}%' class="tatr-shapes"></circle>
+          {{/each}}
+        </svg>
+        {{elseif visible === 2}}
+            <img on-click='back' class="tatr-mask" src="img/fries.svg" style="opacity:{{mask}};">  
+            <div class="note fries">Home Fries<br>Calories: Way too many</div>        
+        {{elseif visible === 3}}
+          <img on-click='back' class="tatr-mask" src="img/beans.svg" style="opacity:{{mask}};">
+          <div class="note ">Baked Beans<br>Calories: don&rsquo;t worry. These are magical calories.</div> 
+        {{elseif visible === 4}}
+          <img on-click='back' class="tatr-mask" src="img/reds.svg" style="opacity:{{mask}};">
+          <div class="note reds">
+            "Red Hots" with the works.
+          </div>
+        {{elseif visible === 5}}
+          <img on-click='back' class="tatr-mask" src="img/mac.svg" style="opacity:{{mask}};">
+          <div class="note mac">
+            1,000 calories of mayonaise goodness
+          </div>
+        {{elseif visible === 6}}
+          <img on-click='back' class="tatr-mask" src="img/garbage.svg" style="opacity:{{mask}};">
+          <div class="note garbage">
+            The Rochester Garbage Plate: MY HEART!!!
+          </div>
+        {{/if}}
+        <div id='tatr-texts'></div>
+    </script>
+  </div>
+
+  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+  <script src='js/ractive-events-hover.js'></script>
+  <script src="js/ractive-events-tap.js"></script>
+  <script src='js/main.js'></script>
+</body>
+</html>
