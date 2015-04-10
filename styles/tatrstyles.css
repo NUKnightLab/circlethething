@@ -1,0 +1,64 @@
+.tatr-body {
+	margin:0;
+	font-family:'Source Code Pro', impact, Helvetica, sans-serif;
+	color:#fff;
+}
+#tatr-box {
+	position:relative;
+}
+.tatr-baseimg {
+	width:100%;
+}
+#tatr-annotations {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+}
+/*#tatr-annotations:hover {
+	opacity:1!important;
+}*/
+.tatr-shapes {
+	position:absolute;
+	stroke:#fff;
+	fill:rgba(0,0,0,0);
+	cursor:pointer;
+}
+.tatr-mask {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:99%;
+}
+.note {
+	position:absolute;
+	width:30%;
+	padding:1em;
+	background-color:rgba(0,0,0,.6);
+	text-align:center;
+	font-size:1.5em;
+	line-height:1.1;
+	border-radius:4px;
+}
+.note.reds {
+	top:40%;
+	left:50%;
+}
+.note.fries {
+	top:52%;
+	left:32%;
+}
+.note.beans {
+	top:50%;
+	left:33%;
+}
+.note.mac {
+	top:45%;
+	left:8%;
+}
+.note.garbage {
+	top:27%;
+	left:33%;
+}
