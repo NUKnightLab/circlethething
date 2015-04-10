@@ -40,5 +40,9 @@
 }
 
 .tatr-shapes{
-	fill:white;
+	fill:rgba(0,0,0,0);
 }
+/*.tatr-shapes.active{
+	stroke:white;
+
+}*/

@@ -18,11 +18,8 @@ $(document).ready( function () {
 	  });
 
 
-	// maskparent = svgpanel.rect(0,0,$width,$height);
-	// maskparent.attr({
-	// 	fill:'#f00',
-	// 	display:'none'
-	// })
+	
+	  maskchild = svgpanel.rect(0,0,$width,$height).attr({'id':'maskchild', 'display':'none'});
 	
 	  //add text
 	  data.annotations.forEach(function(an, idx){
@@ -63,24 +60,31 @@ $(document).ready( function () {
 			})
 
 			$('#shape'+idx).on('mouseenter',function(){
+				removeMasks();
 				applyMasks([this]);
 			});
-	  	}
+
+			$('#shape'+idx).on('mouseleave',function(){
+				removeMasks();
+				$('#tatr-box').mouseenter();
+			});
+	   	}
 	});
 	  $('#tatr-box').on('mouseenter', function(){
 	  		applyMasks($('.tatr-shapes'));
 	  		$('.tatr-text').addClass('active');
-	  }).on('mouseleave',removeMasks);
+	  });
+	  $('#tatr-annotations').on('mouseleave',removeMasks);
 	  //applyMasks($('.tatr-shapes'));
 	});
 });
 function removeMasks(){
-	$('#maskchild').remove();
+	$('#maskchild').css('display','none');
 	$('.tatr-text').removeClass('active');
 }
 function applyMasks(objList){
 				maskparent = svgpanel.rect(0,0,$width,$height);
-				maskchild = svgpanel.rect(0,0,$width,$height).attr({'id':'maskchild'});
+				$('#maskchild').css('display','block');
 
 				var group = svgpanel.group();
 				group.append(maskparent);
@@ -113,5 +117,5 @@ function applyMasks(objList){
 				    'mask': group
 				});
 
-	 			$('.tatr-shapes').css('display','none');
+	 			//$('.tatr-shapes').css('visibility','hidden');
 	  		}
