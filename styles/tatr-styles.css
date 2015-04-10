@@ -1,0 +1,26 @@
+#tatr-box{
+	position: relative;
+	display: block;
+	width: 80%;
+  	margin: auto;
+}
+#tatr-annotations{
+	position: absolute;
+	top:0;
+	left:0;
+}
+.tatr-baseimg{
+	width: 100%;
+	height: auto;
+}
+
+#tatr-texts{
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.tatr-text{
+	position: absolute;
+}
