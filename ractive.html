@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <title>Ractive test</title>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" type="text/css" href="./styles/tatrstyles.css">
+</head>
+
+<body class="tatr-body">
+  <div id="tatr-box">
+    <script id='template' type='text/ractive'>
+      <img class="tatr-baseimg" src='img/garbage_plate.jpg'/>
+      {{#if visible === 1 }}
+        <img class="tatr-mask" src="img/mask.svg" style="opacity:{{mask}};">   
+        <svg on-hover='masky' id='tatr-annotations' version="1.1" xmlns="http://www.w3.org/2000/svg" style='opacity:{{tatrOpacity}};'>
+          {{#each tatr}}
+            <circle on-click='show:{{visible}}' cx='{{xpos}}%' cy='{{ypos}}%' r='{{radius}}%' class="tatr-shapes"></circle>
+          {{/each}}
+        </svg>
+        {{elseif visible === 2}}
+            <img on-click='back' class="tatr-mask" src="img/fries.svg" style="opacity:{{mask}};">  
+            <div class="note fries">Home fries.</div>        
+        {{elseif visible === 3}}
+          <img on-click='back' class="tatr-mask" src="img/beans.svg" style="opacity:{{mask}};">
+          <div class="note beans">Baked Beans</div> 
+        {{elseif visible === 4}}
+          <img on-click='back' class="tatr-mask" src="img/reds.svg" style="opacity:{{mask}};">
+          <div class="note reds">
+            "Red Hots" with the works.
+          </div>
+        {{elseif visible === 5}}
+          <img on-click='back' class="tatr-mask" src="img/mac.svg" style="opacity:{{mask}};">
+          <div class="note mac">
+            Macaroni salad, +1,000 calories!
+          </div>
+        {{elseif visible === 6}}
+          <img on-click='back' class="tatr-mask" src="img/garbage.svg" style="opacity:{{mask}};">
+          <div class="note garbage">
+            My heart attack.
+          </div>
+        {{/if}}
+        <div id='tatr-texts'></div>
+    </script>
+  </div>
+  <article>
+  <h1>Rochester's garbage plate is ridiculous</h1>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat</p>
+  <p>A vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  <p>A vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  <p>A vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores. </p><p>Legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  </article>
+
+  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+  <script src='js/ractive-events-hover.js'></script>
+  <script src="js/ractive-events-tap.js"></script>
+  <script src='js/main.js'></script>
+</body>
+</html>

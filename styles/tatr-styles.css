@@ -42,7 +42,10 @@
 .tatr-shapes{
 	fill:rgba(0,0,0,0);
 }
-/*.tatr-shapes.active{
+.tatr-shapes:hover{
 	stroke:white;
-
-}*/
+}
+.tatr-text.social{
+	background: none;
+	color: white;
+}
