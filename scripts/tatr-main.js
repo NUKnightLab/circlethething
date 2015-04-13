@@ -59,25 +59,51 @@ $(document).ready( function () {
 				'data-index':idx
 			})
 
-			$('#shape'+idx).on('mouseenter',function(){
-				removeMasks();
-				applyMasks([this]);
-			});
+			// $('#shape'+idx).on('mouseenter',function(){
+			// 	removeMasks();
+			// 	applyMasks([this]);
+			// });
 
-			$('#shape'+idx).on('mouseleave',function(){
-				removeMasks();
-				$('#tatr-box').mouseenter();
-			});
+			// $('#shape'+idx).on('mouseleave',function(){
+			// 	removeMasks();
+			// 	$('#tatr-box').mouseenter();
+			// });
+
+			$('#shape'+idx).on('click',socialShareView);
 	   	}
 	});
 	  $('#tatr-box').on('mouseenter', function(){
 	  		applyMasks($('.tatr-shapes'));
 	  		$('.tatr-text').addClass('active');
 	  });
-	  $('#tatr-annotations').on('mouseleave',removeMasks);
+	  $('#tatr-box').on('mouseleave',removeMasks);
 	  //applyMasks($('.tatr-shapes'));
 	});
 });
+
+function socialShareView(){
+	console.log('social');
+	
+	removeMasks();
+	applyMasks([this]);
+	var text = $('#text'+$(this).data('index'))[0].innerHTML;
+
+	$('.social').innerHTML(text);
+
+	//calculate text position
+	var $heightpc= $(this).attr('top')/$height;
+
+	if($heightpc<0.5){
+		$('.social').innerHTML(text)
+		.css('top',$height*.8+'px')
+		.css('left', '10%');
+	}
+	else{
+		$('.social').innerHTML(text)
+		.css('top',$height*.3+'px')
+		.css('left', '10%');
+	}
+}
 function removeMasks(){
 	$('#maskchild').css('display','none');
 	$('.tatr-text').removeClass('active');
